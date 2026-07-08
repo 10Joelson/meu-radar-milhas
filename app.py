@@ -8,11 +8,8 @@ app = Flask(__name__)
 # --- ROBÔ DA SMILES (FILTRADO POR DATA E CABINE) ---
 async def pesquisar_na_smiles(origem, destino, data_str):
     async with async_playwright() as p:
-        iphone = p.devices['iPhone 13']
-       browser = await p.chromium.launch(
-    headless=True,
-    args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-)
+        iphone = p.devices['iPhone 13']browser = await p.chromium.launch(headless=True,
+    args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"])
         context = await browser.new_context(**iphone)
         page = await context.new_page()
         
@@ -57,10 +54,8 @@ async def pesquisar_na_smiles(origem, destino, data_str):
 async def pesquisar_na_azul(origem, destino, data_str):
     async with async_playwright() as p:
         iphone = p.devices['iPhone 13']
-        browser = await p.chromium.launch(
-    headless=True,
-    args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-)
+        browser = await p.chromium.launch(headless=True,
+    args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"])
         context = await browser.new_context(**iphone)
         page = await context.new_page()
         
